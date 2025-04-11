@@ -1,0 +1,186 @@
+# pretrained_model_name_or_path = "../../models/SDXLj/animagineXLV3_v30Base.safetensors"
+# pretrained_model_name_or_path = "../../models/SDXLj/animagine-xl-3.1.safetensors"
+# pretrained_model_name_or_path = "../../models/SDXLj/ponyDiffusionV6XL_v6StartWithThisOne.safetensors"
+# pretrained_model_name_or_path = "../../models/SDXLj/whiteUnicorn_v10.safetensors"
+# pretrained_model_name_or_path = "E://SD/SDXL/ebara_pony_1.bakedVAE.safetensors"
+pretrained_model_name_or_path = "E://SD/SDXL/geneponyForLora_v611.safetensors"
+
+
+# vae = "C:/sd/stable-diffusion-webui/models/VAE/sdxl_vae.safetensors"
+no_half_vae = true
+
+
+
+# train_data_dir = "c://sd/SDXLdataset/bisuke"
+# output_name = "bisuke_SDXL_gpony11_local_huber1_mul_deb3_sfree201_te308_lp_4"
+# output_dir = "c://sd/lorapmodels/sdxl/bisuke_SDXL_gpony11_local_huber1_mul_deb3_sfree201_te308_lp_4"
+
+
+# train_data_dir = "c://sd/SDXLdataset/tina3"
+# output_name = "tina3_SDXL_gpony11_local_huber1_deb_mul_sfree201_te302_lp_12"
+# output_dir = "c://sd/lorapmodels/sdxl/tina3_SDXL_gpony11_local_huber1_deb_mul_sfree201_te302_lp_12"
+
+# train_data_dir = "c://sd/SDXLdataset/tina3"
+# output_name = "tina3_SDXL_gpony11_local_huber01_deb_lion_lp_dora_7"
+# output_dir = "c://sd/lorapmodels/sdxl/tina3_SDXL_gpony11_local_huber01_deb_lion_lp_dora_7"
+
+# train_data_dir = "c://sd/SDXLdataset/tina3"
+# output_name = "tina3_SDXL_gpony11_local_huber1_deb_sfree_lp_dora_8"
+# output_dir = "c://sd/lorapmodels/sdxl/tina3_SDXL_gpony11_local_huber1_deb_sfree_lp_dora_8"
+
+
+# train_data_dir = "c://sd/SDXLdataset/"
+# output_name = "tina3_SDXL_gpony611_local_deb_sfree_lp_1"
+# output_dir = "c://sd/lorapmodels/sdxl/tina3_SDXL_gpony611_local_deb_sfree_lp_1"
+
+train_data_dir = "c://sd/SDXLdataset/ruka3"
+output_name = "ruka3_SDXL_gpony6_local_stdl_prodigy_1"
+output_dir = "c://sd/lorapmodels/sdxl/ruka3_SDXL_gpony6_local_stdl_prodigy_1"
+
+
+
+# train_data_dir = "c://sd/SDXLdataset/mvere"
+# output_name = "mvere_SDXL_gpony6_local_mul05_huber_stdnoise_3"
+# output_dir = "c://sd/lorapmodels/sdxl/mvere_SDXL_gpony6_local_mul05_huber_stdnoise_3"
+# train_data_dir = "c://sd/SDXLdataset/mvere"
+# output_name = "mvere_SDXL_gpony611_local_mul03deb_huber_sfree_8"
+# output_dir = "c://sd/lorapmodels/sdxl/mvere_SDXL_gpony611_local_mul03deb_huber_sfree_8"
+
+
+# train_data_dir = "c://sd/SDXLdataset/leeche2"
+# output_name = "leeche2_SDXL_gpony11_local_huber1_mul_deb3_sfree201_te308_lp_26"
+# output_dir = "c://sd/lorapmodels/sdxl/leeche2_SDXL_gpony11_local_huber1_mul_deb3_sfree201_te308_lp_26"
+
+
+# train_data_dir = "c://sd/SDXLdataset/siera3"
+# output_name = "siera3_SDXL_gpony6_local_huber1_deb_sfree_lp_lr201_te201_5"
+# output_dir = "c://sd/lorapmodels/sdxl/siera3_SDXL_gpony6_local_huber1_deb_sfree_lp_lr201_te201_5"
+
+# train_data_dir = "c://sd/SDXLdataset/ruka3"
+# output_name = "ruka3_SDXL_gpony6_local_huber1_mul_sfree_lp_lr201_te201_7"
+# output_dir = "c://sd/lorapmodels/sdxl/ruka3_SDXL_gpony6_local_huber1_mul_sfree_lp_lr201_te201_7"
+
+
+# train_data_dir = "c://sd/SDXLdataset/mea"
+# output_name = "mea_SDXL_gpony6_local_huber05_deb_sfree_lp_lr201_te201_7"
+# output_dir = "c://sd/lorapmodels/sdxl/mea_SDXL_gpony6_local_huber05_deb_sfree_lp_lr201_te201_7"
+
+# train_data_dir = "c://sd/SDXLdataset/devi"
+# output_name = "devi_SDXL_gpony6_local_huber1_sfree_lp_lr201_te201_1"
+# output_dir = "c://sd/lorapmodels/sdxl/devi_SDXL_gpony6_local_huber1_sfree_lp_lr201_te201_1"
+
+
+# train_data_dir = "c://sd/SDXLdataset/karen"
+# output_name = "karen_SDXL_gpony6_local_huber02_sfree_lp_mul_lr201_te201_6"
+# output_dir = "c://sd/lorapmodels/sdxl/karen_SDXL_gpony6_local_huber02_sfree_lp_mul_lr201_te201_6"
+
+
+# train_data_dir = "c://sd/SDXLdataset/danoura2"
+# output_name = "danoura2_SDXL_gpony6_local_deb_c3_lorap_1"
+# output_dir = "c://sd/lorapmodels/sdxl/danoura2_SDXL_gpony6_local_deb_c3_lorap_1"
+
+
+keep_tokens= 2
+# keep_tokens_separator = "|||"
+max_train_steps = 3000
+save_every_n_steps = 100
+save_last_n_steps = 5000
+train_batch_size = 2
+
+# success
+network_dim = 8
+network_alpha = 1
+
+network_module = "networks.lora"
+
+# network_module = "networks.lora_opt_nes"
+# network_args = ["nest_dim=512,768"]
+# network_args = ["nest_dim=256,512"]
+# network_args = ["nest_dim=384,576","conv_dim=4", "conv_alpha=1"]
+# network_args = ["conv_dim=8", "conv_alpha=1"]
+
+# network_module = "lycoris.kohya"
+# network_args = ["algo=lora","dora_wd=True"]
+
+# optimizer
+
+# train_text_encoder = true
+# learning_rate_te1 = 0.0008
+# learning_rate_te2 = 0.0008
+# optimizer_type = "AdamWScheduleFree"
+# learning_rate = 0.001
+# optimizer_args = ["warmup_steps=100"]
+
+# optimizer_type = "Lion"
+# learning_rate = 0.0001
+# train_text_encoder = true
+# learning_rate_te1 = 0.00005
+# learning_rate_te2 = 0.00005
+# lr_scheduler = "cosine"
+# lr_warmup_steps = 50
+
+learning_rate = 1
+optimizer_type = "prodigy"
+optimizer_args = ["eps=1e-8","betas=0.9,0.99","d_coef=1","d0=1e-6","weight_decay=0.01","decouple=True","use_bias_correction=True","safeguard_warmup=True"]
+# optimizer_args = ["eps=1e-8","betas=0.9,0.99","d_coef=0.8","d0=1e-6","weight_decay=0.01","decouple=True","use_bias_correction=True","safeguard_warmup=True"]
+
+train_text_encoder = true
+learning_rate_te1 = 0.00005
+learning_rate_te2 = 0.00005
+
+
+# learning_rate = 0.0001
+# optimizer_type = "Lion"
+
+
+#lr_scheduler
+
+lr_scheduler = "cosine"
+# lr_scheduler = "cosine_with_restarts"
+# lr_scheduler_num_cycles = 3
+# lr_warmup_steps = 50
+
+#exsetting
+
+# color_aug = true
+# flip_aug = true
+cache_latents = true
+
+#noise
+masked_loss = true
+std_loss_weight = 1.0
+# prior_loss_weight = 1.0
+
+# loss_type = "smooth_l1"
+# huber_schedule = "snr"
+# huber_c = 1
+
+# debiased_estimation_loss = true
+# noise_offset_type = "Multires"
+# multires_noise_iterations = 6
+# multires_noise_discount = 0.3
+
+# network_dropout = 0.1
+
+resolution = "1024"
+# min_bucket_reso = 512
+max_bucket_reso = 2048
+enable_bucket = true
+bucket_no_upscale = true
+shuffle_caption= true
+caption_extension = ".txt"
+# reg_data_dir = "../../dataset/classf"
+logging_dir = "logs"
+max_token_length = 225
+max_data_loader_n_workers = 8
+save_precision = "fp16"
+mixed_precision = "fp16"
+xformers = true
+gradient_checkpointing = true
+persistent_data_loader_workers = true
+seed = 1488832523
+# debug_dataset = true
+fp8_base = true
+
+
+# loraplus_lr_ratio = 16
