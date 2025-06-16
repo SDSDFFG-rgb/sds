@@ -194,8 +194,6 @@ class AdamWScheduleFreeHybridAdopt(torch.optim.Optimizer):
                 grad_normalized = grad.div(denom)
 
                 # 4. Apply Weight Decay (AdamW style)
-                # The update vector should be modified before applying it to the params.
-                # Here we follow the original implementation's style.
                 if decay != 0:
                     grad_normalized.add_(y, alpha=decay)
 
@@ -216,14 +214,18 @@ class AdamWScheduleFreeHybridAdopt(torch.optim.Optimizer):
                         exp_avg_res.mul_(group['cautious_came_beta']).add_(res, alpha=1 - group['cautious_came_beta'])
                         
                         # Invert and scale to get a 0-1 score
-                        # (Using exp decay for better numerical stability and scaling)
                         score_came = torch.exp(-exp_avg_res.sqrt())
                         
                         # Blend scores to get final suppression factor
                         suppression_factor = (score_cautious * w_cautious + score_came * w_came)
                         
+                        # ===============================================================
+                        # ★★★★★★★★★★★★★★★★★★★ エラー修正箇所 ★★★★★★★★★★★★★★★★★★★
+                        # ===============================================================
                         # Apply suppression and update parameters
-                        y.sub_(u, alpha=suppression_factor)
+                        # y.sub_(u, alpha=suppression_factor)  <- This caused TypeError
+                        y.sub_(u.mul(suppression_factor))  # Correct way
+                        # ===============================================================
 
                     else: # Original Cautious logic (momentum mask / adaptive rescale)
                         current_mask = (u * grad_for_mask > 0).to(grad.dtype)
@@ -244,7 +246,6 @@ class AdamWScheduleFreeHybridAdopt(torch.optim.Optimizer):
                             y.sub_(u_pos)
                         else:
                             u_masked = u * final_mask
-                            # Rescale to maintain update magnitude
                             u_masked.mul_(final_mask.numel() / (final_mask.sum() + eps))
                             y.sub_(u_masked)
 
