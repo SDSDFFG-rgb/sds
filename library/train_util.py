@@ -4366,24 +4366,66 @@ def get_optimizer(args, trainable_params):
         optimizer_class = torch.optim.AdamW
         optimizer = optimizer_class(trainable_params, lr=lr, **optimizer_kwargs)
 
+
     elif optimizer_type.endswith("schedulefree".lower()):
-        try:
-            import schedulefree as sf
-        except ImportError:
-            raise ImportError("No schedulefree / schedulefreeがインストールされていないようです")
-        # if optimizer_type == "AdamWScheduleFree".lower():
-        if optimizer_type == "RAdamScheduleFree".lower():
-            optimizer_class = sf.RAdamScheduleFree
-            logger.info(f"use RAdamScheduleFree optimizer | {optimizer_kwargs}")
-        elif optimizer_type == "AdamWScheduleFree".lower():
+        # "hyperfusionschedulefree" の場合、カスタムパスからインポート
+        if optimizer_type == "hyperfusionschedulefree".lower():
+            try:
+                # library.hyper_fusion_optimizer モジュールから HyperFusionOptimizerScheduleFree クラスをインポート
+                from library.hyper_fusion_optimizer import HyperFusionOptimizerScheduleFree
+            except ImportError:
+                raise ImportError(
+                    "Could not import HyperFusionOptimizerScheduleFree. "
+                    "Please make sure 'library/hyper_fusion_optimizer.py' exists. / "
+                    "HyperFusionOptimizerScheduleFreeをインポートできませんでした。"
+                    "'library/hyper_fusion_optimizer.py'が存在するか確認してください。"
+                )
+            optimizer_class = HyperFusionOptimizerScheduleFree
+            logger.info(f"use HyperFusionOptimizerScheduleFree optimizer | {optimizer_kwargs}")
+
+        # それ以外の "schedulefree" で終わるオプティマイザの場合
+        else:
+            try:
+                import schedulefree as sf
+            except ImportError:
+                raise ImportError("No schedulefree / schedulefreeがインストールされていないようです")
+
+            if optimizer_type == "RAdamScheduleFree".lower():
+                optimizer_class = sf.RAdamScheduleFree
+                logger.info(f"use RAdamScheduleFree optimizer | {optimizer_kwargs}")
+            elif optimizer_type == "AdamWScheduleFree".lower():
                 optimizer_class = sf.AdamWScheduleFree
                 logger.info(f"use AdamWScheduleFree optimizer | {optimizer_kwargs}")
-        elif optimizer_type == "SGDScheduleFree".lower():
-            optimizer_class = sf.SGDScheduleFree 
-            logger.info(f"use SGDScheduleFree optimizer | {optimizer_kwargs}")
-        else:
-            raise ValueError(f"Unknown optimizer type: {optimizer_type}")
+            elif optimizer_type == "SGDScheduleFree".lower():
+                optimizer_class = sf.SGDScheduleFree
+                logger.info(f"use SGDScheduleFree optimizer | {optimizer_kwargs}")
+            else:
+                raise ValueError(f"Unknown optimizer type ending with 'schedulefree': {optimizer_type}")
+
+        # 選択されたオプティマイザクラスでインスタンスを生成
         optimizer = optimizer_class(trainable_params, lr=lr, **optimizer_kwargs)
+
+        
+    # elif optimizer_type.endswith("schedulefree".lower()):
+    #     try:
+    #         import schedulefree as sf
+    #     except ImportError:
+    #         raise ImportError("No schedulefree / schedulefreeがインストールされていないようです")
+    #     # if optimizer_type == "AdamWScheduleFree".lower():
+    #     if optimizer_type == "RAdamScheduleFree".lower():
+    #         optimizer_class = sf.RAdamScheduleFree
+    #         logger.info(f"use RAdamScheduleFree optimizer | {optimizer_kwargs}")
+    #     elif optimizer_type == "AdamWScheduleFree".lower():
+    #             optimizer_class = sf.AdamWScheduleFree
+    #             logger.info(f"use AdamWScheduleFree optimizer | {optimizer_kwargs}")
+    #     elif optimizer_type == "SGDScheduleFree".lower():
+    #         optimizer_class = sf.SGDScheduleFree 
+    #         logger.info(f"use SGDScheduleFree optimizer | {optimizer_kwargs}")
+    #     else:
+    #         raise ValueError(f"Unknown optimizer type: {optimizer_type}")
+    #     optimizer = optimizer_class(trainable_params, lr=lr, **optimizer_kwargs)
+
+
 
     if optimizer is None:
         # 任意のoptimizerを使う
